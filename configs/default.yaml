@@ -1,0 +1,38 @@
+# Default configuration for Adaptive Feature Interaction Networks
+# This configuration trains the full model with dynamic gating and adaptive interaction selection
+
+seed: 42
+
+data:
+  dataset_name: synthetic
+  n_samples: 10000
+  n_features: 50
+  n_informative: 30
+  n_redundant: 10
+  n_classes: 2
+  scaling_method: standard
+
+model:
+  hidden_dims: [256, 128, 64]
+  num_gates: 32
+  interaction_orders: [2, 3]
+  gate_hidden_dim: 64
+  gate_temperature: 0.5
+  sparsity_weight: 0.001
+  dropout: 0.3
+  use_batch_norm: true
+
+training:
+  num_epochs: 100
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler_type: cosine
+  scheduler_params:
+    T_max: 100
+    eta_min: 0.00001
+  gradient_clip_val: 1.0
+  early_stopping_patience: 10
+  use_amp: true
+  log_interval: 50

@@ -1,0 +1,39 @@
+# Ablation study configuration - Baseline without dynamic gating
+# This config disables key novel components to measure their contribution
+
+seed: 42
+
+data:
+  dataset_name: synthetic
+  n_samples: 10000
+  n_features: 50
+  n_informative: 30
+  n_redundant: 10
+  n_classes: 2
+  scaling_method: standard
+
+model:
+  # Reduced model complexity for baseline comparison
+  hidden_dims: [256, 128, 64]
+  num_gates: 16  # Reduced number of gates
+  interaction_orders: [2]  # Only pairwise interactions (no triplets)
+  gate_hidden_dim: 32  # Smaller gate network
+  gate_temperature: 1.0  # Higher temperature = less sparse
+  sparsity_weight: 0.0  # No sparsity regularization
+  dropout: 0.3
+  use_batch_norm: true
+
+training:
+  num_epochs: 100
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler_type: cosine
+  scheduler_params:
+    T_max: 100
+    eta_min: 0.00001
+  gradient_clip_val: 1.0
+  early_stopping_patience: 10
+  use_amp: true
+  log_interval: 50
