@@ -1,0 +1,11 @@
+{
+  "accuracy": 0.912,
+  "precision": 0.9120947705750326,
+  "recall": 0.9120156480625923,
+  "f1": 0.9119968318859479,
+  "auc_roc": 0.9605498421993688,
+  "log_loss": 0.24802297948995816,
+  "feature_interaction_sparsity": 0.50609375,
+  "avg_inference_time_per_batch": 0.5237079560756683,
+  "inference_throughput_samples_per_sec": 488.8220563198999
+}
