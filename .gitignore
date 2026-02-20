@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyc
 .Python
 build/
 develop-eggs/
@@ -55,19 +56,20 @@ mlartifacts/
 
 # Model checkpoints and outputs
 checkpoints/*.pt
+checkpoints/*.pth
 models/*.pt
 models/*.pth
-results/*.json
-results/*.csv
-results/*.png
-results/*.pdf
 
 # Data
-data/raw/
-data/processed/
+data/
 *.csv
 *.parquet
 *.feather
+
+# Results - track results.json but exclude generated artifacts
+results/*.csv
+results/*.png
+results/*.pdf
 
 # Logs
 *.log
@@ -92,7 +94,6 @@ $RECYCLE.BIN/
 *.tmp
 *.temp
 *.bak
-*.swp
 
 # Weights & Biases
 wandb/
